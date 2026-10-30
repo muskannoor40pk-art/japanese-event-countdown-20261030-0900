@@ -1,0 +1,33 @@
+:root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --accent: #e11d48;
+            --text: #334155;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; line-height: 1.6; color: var(--text); background-color: var(--light); }
+
+        header { text-align: center; padding: 4rem 1rem; background: var(--dark); color: white; }
+        .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
+
+        .countdown { display: flex; justify-content: center; gap: 1.5rem; margin: 2rem 0; }
+        .timer-box { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); min-width: 80px; text-align: center; }
+        .timer-box span { display: block; font-size: 2rem; font-weight: bold; color: var(--primary); }
+        .timer-box small { font-size: 0.75rem; text-transform: uppercase; color: #64748b; }
+
+        .agenda { margin: 4rem 0; }
+        .agenda-item { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid #e2e8f0; }
+        .agenda-time { font-weight: bold; color: var(--primary); min-width: 80px; }
+
+        .subscribe { background: white; padding: 3rem; border-radius: 12px; text-align: center; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        input[type="email"] { padding: 0.75rem; width: 100%; max-width: 300px; border: 1px solid #cbd5e1; border-radius: 4px; margin-bottom: 1rem; }
+        button { background: var(--primary); color: white; border: none; padding: 0.75rem 2rem; border-radius: 4px; cursor: pointer; font-weight: bold; transition: opacity 0.3s; }
+        button:hover { opacity: 0.9; }
+
+        @media (max-width: 600px) {
+            .countdown { gap: 0.5rem; }
+            .timer-box { padding: 1rem; min-width: 60px; }
+            .timer-box span { font-size: 1.25rem; }
+        }
