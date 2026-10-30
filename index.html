@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>次世代プロダクト発表会 | 2024年12月25日開催</title>
+    
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>次世代プロダクト発表会</h1>
+    <p>未来を変える体験が、ここから始まります。</p>
+    <div class="countdown" id="countdown">
+        <div class="timer-box"><span id="days">00</span><small>日</small></div>
+        <div class="timer-box"><span id="hours">00</span><small>時間</small></div>
+        <div class="timer-box"><span id="minutes">00</span><small>分</small></div>
+        <div class="timer-box"><span id="seconds">00</span><small>秒</small></div>
+    </div>
+</header>
+
+<main class="container">
+    <section class="agenda">
+        <h2>イベントアジェンダ</h2>
+        <div class="agenda-item">
+            <div class="agenda-time">13:00</div>
+            <div>
+                <h3>オープニング・基調講演</h3>
+                <p>CEOによるビジョンとプロダクトのコンセプト発表。</p>
+            </div>
+        </div>
+        <div class="agenda-item">
+            <div class="agenda-time">14:30</div>
+            <div>
+                <h3>デモンストレーション</h3>
+                <p>新機能のライブデモと活用事例のご紹介。</p>
+            </div>
+        </div>
+        <div class="agenda-item">
+            <div class="agenda-time">15:30</div>
+            <div>
+                <h3>質疑応答・ネットワーキング</h3>
+                <p>開発チームとの交流会。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="subscribe">
+        <h2>最新情報を受け取る</h2>
+        <p>登録して発表会の詳細や先行案内をお見逃しなく。</p>
+        <br>
+        <form id="subForm">
+            <input type="email" placeholder="メールアドレスを入力" required>
+            <br>
+            <button type="submit">登録する</button>
+        </form>
+    </section>
+</main>
+
+<script>
+    // 2024年12月25日 13:00:00 JST
+    const targetDate = new Date('2024-12-25T13:00:00+09:00').getTime();
+
+    function updateTimer() {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+            document.getElementById('countdown').innerHTML = "<h3>イベントは終了しました</h3>";
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = String(days).padStart(2, '0');
+        document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    document.getElementById('subForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('ご登録ありがとうございます。最新情報をメールでお届けします。');
+        e.target.reset();
+    });
+</script>
+
+</body>
+</html>
